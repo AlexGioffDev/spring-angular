@@ -1,0 +1,68 @@
+# Per il backend Spring Boot
+target/
+*.class
+*.war
+*.jar
+*.log
+*.out
+*.bak
+*.swp
+*~ 
+!src/main/resources/
+*.iml
+.idea/
+.project
+.classpath
+.settings/
+
+# Configurazione Maven/Gradle
+.mvn/
+build/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+.gradle/
+.gradle-cache/
+build/
+out/
+
+# Per il frontend Angular
+node_modules/
+dist/
+tmp/
+*.log
+*.tsbuildinfo
+
+# Configurazioni IDE/Editor
+*.vscode/
+*.vscode/settings.json
+*.vscode/tasks.json
+*.vscode/launch.json
+
+# Sistemi operativi e file di sistema
+.DS_Store
+Thumbs.db
+Desktop.ini
+._*
+~$*
+*.tmp
+*.bak
+*.swp
+*.swo
+*.lock
+*.log
+
+# Cartelle comuni da ignorare
+*.Trash-*/         # Cestini di sistema
+.cache/            # Cartelle di cache generiche
+.cache-loader/     # Cache di loader di tool come Webpack
+.history/          # File di cronologia locale (es. shell, editor)
+.trash/            # Cartelle di trash temporanee
+logs/              # Directory per log generici
+temp/              # Directory temporanee
+
+# File temporanei o di lock
+*.~lock.*
+*.lock
+*.sw?              # File swap di editor (es. Vim)
