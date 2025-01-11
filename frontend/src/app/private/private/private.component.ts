@@ -16,12 +16,25 @@ export class PrivateComponent implements OnInit {
   constructor(private router: Router, private apiService: ApiService) {}
 
   ngOnInit(): void {
-    this.token = localStorage.getItem('token');
-    if (!this.token) {
-      console.log("Token don't get it");
-      this.router.navigate(['login']);
-      return;
-    }
+    this.checkToken();
+  }
+
+  logoutAndRedirect() {
+    localStorage.removeItem('token');
+    return this.router.navigate(['login']);
+  }
+
+  checkToken() {
+    this.apiService.validToken().subscribe({
+      next: (isValid: boolean) => {
+        if (!isValid) {
+          this.logoutAndRedirect();
+        }
+      },
+      error: (error) => {
+        this.logoutAndRedirect();
+      },
+    });
   }
 
   getValue() {

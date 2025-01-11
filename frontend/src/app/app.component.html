@@ -4,12 +4,19 @@
       <li>
         <a [routerLink]="['']">HomePage</a>
       </li>
+      @if(!this.username) {
       <li>
         <a [routerLink]="['register']"> Register </a>
       </li>
       <li>
         <a [routerLink]="['login']">Login</a>
       </li>
+      } @else {
+      <p>Hello, {{ username }}</p>
+      <li>
+        <a (click)="logout()">Logout</a>
+      </li>
+      }
     </ul>
   </nav>
 </div>

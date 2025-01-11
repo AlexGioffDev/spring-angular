@@ -11,6 +11,7 @@ import { ApiService } from './services/api.service';
 export class AppComponent implements OnInit {
   title = 'frontend';
   value: string = '';
+  username: string | null = null;
   constructor(private apiService: ApiService) {}
 
   ngOnInit(): void {
@@ -19,5 +20,16 @@ export class AppComponent implements OnInit {
       console.log(mes);
       this.value = mes;
     });
+
+    this.apiService.getUseranmeObservable().subscribe((username) => {
+      this.username = username;
+    });
+
+    this.apiService.updateUsername();
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    this.apiService.updateUsername();
   }
 }
